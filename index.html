@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Student Portal</title>
+<style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0; padding: 0;
+    background: #f4f7f8;
+    color: #333;
+  }
+  nav {
+    background-color: #0077cc;
+    padding: 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: background 0.3s;
+  }
+  nav a:hover,
+  nav a.active {
+    background-color: #005fa3;
+  }
+  nav a:not(.login-link) {
+    display: none;
+  }
+  section {
+    display: none;
+    padding: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  section.active {
+    display: block;
+  }
+  h2 {
+    color: #0077cc;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  label {
+    font-weight: bold;
+  }
+  input, select, textarea {
+    padding: 8px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  button {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    width: fit-content;
+  }
+  button:hover {
+    background-color: #005fa3;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  th {
+    background-color: #0077cc;
+    color: white;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#login" class="active login-link">Login</a>
+  <a href="#profile" class="nav-link">Student Profile</a>
+  <a href="#attendance" class="nav-link">Attendance</a>
+  <a href="#timetable" class="nav-link">Time Table</a>
+  <a href="#fees" class="nav-link">Fees</a>
+  <a href="#result" class="nav-link">Result</a>
+  <a href="#medical" class="nav-link">Medical Leave</a>
+  <a href="#course" class="nav-link">Course Registration</a>
+  <a href="#counselor" class="nav-link">Counselor Details</a>
+  <a href="#contact" class="nav-link">Contact Me</a>
+  <a href="#hallticket" class="nav-link">Download Hall Ticket</a>
+</nav>
+
+<section id="login" class="active">
+  <h2>Student Login</h2>
+  <form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required />
+    <label for="password">Password:</label>
+    <input type="password" id="password" required />
+    <button type="submit">Login</button>
+  </form>
+</section>
+
+<section id="profile">
+  <h2>Student Profile</h2>
+  <p><strong>Name:</strong> Vishvesh Joshi</p>
+  <p><strong>Roll No:</strong> 24CS031</p>
+  <p><strong>Branch:</strong> Computer Science and Engineering</p>
+  <p><strong>Institute:</strong> CSPIT</p>
+</section>
+
+<section id="attendance">
+  <h2>Attendance</h2>
+  <table>
+    <thead>
+      <tr><th>Subject</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>DSA</td><td>Present</td><td>Present</td><td>Absent</td><td>Present</td><td>Present</td></tr>
+      <tr><td>OOP</td><td>Absent</td><td>Present</td><td>Present</td><td>Absent</td><td>Present</td></tr>
+      <tr><td>Discrete Maths</td><td>Present</td><td>Absent</td><td>Present</td><td>Present</td><td>Absent</td></tr>
+      <tr><td>WDF</td><td>Present</td><td>Present</td><td>Present</td><td>Absent</td><td>Present</td></tr>
+      <tr><td>CN</td><td>Absent</td><td>Present</td><td>Absent</td><td>Present</td><td>Present</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="timetable">
+  <h2>Time Table</h2>
+  <table>
+    <thead>
+      <tr><th>Day</th><th>9-10</th><th>10-11</th><th>11-12</th><th>Break</th><th>1-2</th><th>2-3</th><th>3-4</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Monday</td><td>DSA</td><td>CN</td><td>OOP</td><td>Break</td><td>WDF</td><td>Maths</td><td>Free</td></tr>
+      <tr><td>Tuesday</td><td>OOP</td><td>WDF</td><td>CN</td><td>Break</td><td>DSA</td><td>Discrete</td><td>Free</td></tr>
+      <tr><td>Wednesday</td><td>Maths</td><td>OOP</td><td>DSA</td><td>Break</td><td>WDF</td><td>CN</td><td>Free</td></tr>
+      <tr><td>Thursday</td><td>CN</td><td>DSA</td><td>WDF</td><td>Break</td><td>Discrete</td><td>Maths</td><td>Free</td></tr>
+      <tr><td>Friday</td><td>WDF</td><td>CN</td><td>OOP</td><td>Break</td><td>DSA</td><td>Discrete</td><td>Free</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="fees">
+  <h2>Fees Details</h2>
+  <table>
+    <thead>
+      <tr><th>Fee Type</th><th>Amount</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Tuition Fee</td><td>₹4,00,000</td></tr>
+      <tr><td>Exam Fee</td><td>₹3,500</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="result">
+  <h2>Result</h2>
+  <p><strong>Semester 1 SGPA:</strong> 7.79</p>
+  <p><strong>Semester 2 SGPA:</strong> 7.24</p>
+</section>
+
+<section id="medical">
+  <h2>Medical Leave Application</h2>
+  <form id="medicalForm">
+    <label for="leaveDate">Date of Leave:</label>
+    <input type="date" id="leaveDate" required />
+    <label for="reason">Reason:</label>
+    <textarea id="reason" rows="4" required></textarea>
+    <button type="submit">Submit Application</button>
+  </form>
+</section>
+
+<section id="course">
+  <h2>Course Registration</h2>
+  <p>You have successfully registered for Semester 3 Courses.</p>
+</section>
+
+<section id="counselor">
+  <h2>Counselor Details</h2>
+  <p><strong>Name:</strong> Hemang Thakkar</p>
+  <p><strong>Email:</strong> hemang@example.com</p>
+  <p><strong>Room No:</strong> 213</p>
+</section>
+
+<section id="contact">
+  <h2>Contact Me</h2>
+  <p><strong>Mobile:</strong> +91-9876543210</p>
+  <p><strong>Email:</strong> vishvesh.joshi@example.com</p>
+</section>
+
+<section id="hallticket">
+  <h2>Download Hall Ticket</h2>
+  <button onclick="alert('Hall Ticket Downloaded')">Download</button>
+</section>
+
+<script>
+  const navLinks = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('section');
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      sections.forEach(section => {
+        section.classList.toggle('active', section.id === targetId);
+      });
+      navLinks.forEach(nav => nav.classList.remove('active'));
+      link.classList.add('active');
+    });
+  });
+
+  document.getElementById('loginForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Logged in successfully!');
+    document.querySelectorAll('nav a.nav-link').forEach(link => {
+      link.style.display = 'inline-block';
+    });
+    document.querySelector('nav a[href="#profile"]').click();
+  });
+
+  document.getElementById('medicalForm').addEventListener('submit', e => {
+    e.preventDefault();
+    alert('Medical leave application submitted!');
+    e.target.reset();
+  });
+</script>
+
+</body>
+</html>
