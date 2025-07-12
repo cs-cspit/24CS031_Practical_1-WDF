@@ -1,101 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Student Portal</title>
-<style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0; padding: 0;
-    background: #f4f7f8;
-    color: #333;
-  }
-  nav {
-    background-color: #0077cc;
-    padding: 10px 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  nav a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 4px;
-    transition: background 0.3s;
-  }
-  nav a:hover,
-  nav a.active {
-    background-color: #005fa3;
-  }
-  nav a:not(.login-link) {
-    display: none;
-  }
-  section {
-    display: none;
-    padding: 20px;
-    max-width: 800px;
-    margin: 20px auto;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  }
-  section.active {
-    display: block;
-  }
-  h2 {
-    color: #0077cc;
-  }
-  form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  label {
-    font-weight: bold;
-  }
-  input, select, textarea {
-    padding: 8px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  button {
-    background-color: #0077cc;
-    color: white;
-    border: none;
-    padding: 10px;
-    font-size: 1rem;
-    cursor: pointer;
-    border-radius: 4px;
-    width: fit-content;
-  }
-  button:hover {
-    background-color: #005fa3;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  th, td {
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
-  }
-  th {
-    background-color: #0077cc;
-    color: white;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Student Portal</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f7f8;
+      color: #333;
+    }
+    nav {
+      background-color: #0077cc;
+      padding: 10px 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 8px 15px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    nav a:hover,
+    nav a:target,
+    nav a:focus {
+      background-color: #005fa3;
+    }
+    nav a:not(.login-link) {
+      display: inline-block; /* Always show for CSS-only version */
+    }
+
+    section {
+      display: none;
+      padding: 20px;
+      max-width: 800px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+    section:target {
+      display: block;
+    }
+    section:first-of-type:target ~ section#login,
+    body:not(:has(section:target)) section#login {
+      display: block;
+    }
+
+    h2 {
+      color: #0077cc;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input,
+    select,
+    textarea {
+      padding: 8px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      width: fit-content;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #0077cc;
+      color: white;
+    }
+  </style>
 </head>
 <body>
 
 <nav>
-  <a href="#login" class="active login-link">Login</a>
+  <a href="#login" class="login-link">Login</a>
   <a href="#profile" class="nav-link">Student Profile</a>
   <a href="#attendance" class="nav-link">Attendance</a>
   <a href="#timetable" class="nav-link">Time Table</a>
@@ -108,9 +119,9 @@
   <a href="#hallticket" class="nav-link">Download Hall Ticket</a>
 </nav>
 
-<section id="login" class="active">
+<section id="login">
   <h2>Student Login</h2>
-  <form id="loginForm">
+  <form>
     <label for="username">Username:</label>
     <input type="text" id="username" required />
     <label for="password">Password:</label>
@@ -167,7 +178,7 @@
     </thead>
     <tbody>
       <tr><td>Tuition Fee</td><td>₹4,00,000</td></tr>
-      <tr><td>Exam Fee</td><td>₹3,500</td></tr>
+      <tr><td>Exam Fee</td><td>₹3,000</td></tr>
     </tbody>
   </table>
 </section>
@@ -180,7 +191,7 @@
 
 <section id="medical">
   <h2>Medical Leave Application</h2>
-  <form id="medicalForm">
+  <form>
     <label for="leaveDate">Date of Leave:</label>
     <input type="date" id="leaveDate" required />
     <label for="reason">Reason:</label>
@@ -209,40 +220,8 @@
 
 <section id="hallticket">
   <h2>Download Hall Ticket</h2>
-  <button onclick="alert('Hall Ticket Downloaded')">Download</button>
+  <p>Feature not available without JavaScript.</p>
 </section>
-
-<script>
-  const navLinks = document.querySelectorAll('nav a');
-  const sections = document.querySelectorAll('section');
-
-  navLinks.forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      sections.forEach(section => {
-        section.classList.toggle('active', section.id === targetId);
-      });
-      navLinks.forEach(nav => nav.classList.remove('active'));
-      link.classList.add('active');
-    });
-  });
-
-  document.getElementById('loginForm').addEventListener('submit', e => {
-    e.preventDefault();
-    alert('Logged in successfully!');
-    document.querySelectorAll('nav a.nav-link').forEach(link => {
-      link.style.display = 'inline-block';
-    });
-    document.querySelector('nav a[href="#profile"]').click();
-  });
-
-  document.getElementById('medicalForm').addEventListener('submit', e => {
-    e.preventDefault();
-    alert('Medical leave application submitted!');
-    e.target.reset();
-  });
-</script>
 
 </body>
 </html>
